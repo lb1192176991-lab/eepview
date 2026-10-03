@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 The eepview contributors
 // SPDX-License-Identifier: MIT
 
-//! The wire types of the IPC contract (`docs/ipc.md`).
+//! The wire types of the IPC contract (`docs/wiki/ipc-contract.md`).
 
 use serde::{Deserialize, Serialize};
 
@@ -183,7 +183,7 @@ pub struct Suggestion {
 /// What the browser knows about the router.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct RouterStatus {
-    /// `verifying`, `ok`, `building`, `down`, `not-i2p` or `outproxy`.
+    /// `verifying`, `ok`, `building`, `down` or `not-i2p`.
     pub state: &'static str,
     /// `host:port` of the HTTP proxy.
     pub proxy: String,
