@@ -24,3 +24,4 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Add the design system, theme switching, browser chrome and internal pages (#19)
 - Keep the macOS traffic lights off the first tab (#23)
 - Polish the setup flow and add the router panel to the toolbar (#27)
+- Add the browser shell: tabs, navigation, bookmarks, history, find, the gatekeeper, pause and resume, the platform bridge and ADR 0001 ([#29](https://github.com/tcivie/eepview/pull/29))

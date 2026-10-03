@@ -14,24 +14,32 @@
 
 eepview is a browser for I2P sites (`*.i2p`). It runs on the web view of your operating system, so it is small. The design goal: no clearnet traffic from the page view, because every page load goes through the I2P HTTP proxy. This is not built yet. See Status.
 
-## Security model (design target, not built yet)
+## Security model
+
+Built (see [ADR 0001](docs/wiki/adr-0001-no-leak-architecture.md)):
+
+| Path | Guard |
+|---|---|
+| Page loads | A web tab exists only after the I2P proxy passes a check. Every load goes through eepview's own gatekeeper proxy, which forwards only `.i2p` requests. |
+| Outproxy | Not used. eepview checks the router proxy every 5 s and refuses one that reaches the clearnet. |
+| Loopback | Blocked. The gatekeeper refuses it, a page policy and an engine rule list block it inside the page. A page cannot reach local services. |
+| Navigation | Only `http(s)://*.i2p` and `*.b32.i2p` can load. |
+| WebRTC | Off. WebRTC sends UDP outside the proxy, so no engine can keep it inside I2P. |
+| JavaScript | On by default. Pages reach only .i2p hosts: the five guards below JavaScript block everything else. You can turn JS off per site. |
+
+Design target, not built yet:
 
 | Path | Planned guard |
 |---|---|
-| Page loads | The page view exists only after the I2P proxy is verified. All loads go through that proxy. |
-| Outproxy | Not used. The managed router has an empty outproxy list, checked at every start. For an external router, eepview checks it. |
-| Loopback | Forced through the proxy, which refuses it. A page script cannot reach local services. |
-| Navigation | Only `http(s)://*.i2p` and `*.b32.i2p` can load. |
-| WebRTC | Off. |
-| JavaScript | Off by default. You can turn it on per site. |
+| Outproxy | The managed router has an empty outproxy list, checked at every start. |
 | Consent | No network action starts before you agree to it. The installer and the Java update are the only clearnet paths. They run only after a click, to fixed hosts. |
 
 ## Features
 
-- Tabs (in progress)
-- Bookmarks (in progress)
-- History (in progress)
-- Find in page (in progress)
+- Tabs
+- Bookmarks
+- History
+- Find in page
 - Router stats (in progress)
 - Light and dark theme (in progress)
 
