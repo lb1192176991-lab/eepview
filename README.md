@@ -21,7 +21,7 @@ Built (see [ADR 0001](docs/wiki/adr-0001-no-leak-architecture.md)):
 | Path | Guard |
 |---|---|
 | Page loads | A web tab exists only after the I2P proxy passes a check. Every load goes through eepview's own gatekeeper proxy, which forwards only `.i2p` requests. |
-| Outproxy | Not used. eepview checks the router proxy every 5 s and refuses one that reaches the clearnet. |
+| Outproxy | Never used. The gatekeeper forwards only `.i2p` hosts, so a router outproxy cannot carry a page request. eepview itself never asks for a clearnet host. |
 | Loopback | Blocked. The gatekeeper refuses it, a page policy and an engine rule list block it inside the page. A page cannot reach local services. |
 | Navigation | Only `http(s)://*.i2p` and `*.b32.i2p` can load. |
 | WebRTC | Off. WebRTC sends UDP outside the proxy, so no engine can keep it inside I2P. |
