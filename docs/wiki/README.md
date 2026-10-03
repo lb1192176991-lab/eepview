@@ -10,7 +10,7 @@ This wiki is generated from docs/wiki in the repository. Edit it there, in a PR.
 | Browser UI | shipped | [Browser UI](browser-ui.md) | [#19](https://github.com/tcivie/eepview/pull/19) |
 | Browser shell | in progress | [Browser shell](browser-shell.md) | branch `feat/browser-shell` |
 | No-leak architecture | in progress | [No-leak architecture](no-leak-architecture.md) | branch `feat/browser-shell` |
-| Leak test | in progress | [Leak test](leak-test.md) | branch `test/leak-harness` |
+| Leak test | shipped | [Leak test](leak-test.md) | PR_LINK |
 | Release pipeline | shipped | [Release pipeline](release-pipeline.md) | [#14](https://github.com/tcivie/eepview/pull/14) |
 | Coverage | shipped | [Coverage](coverage.md) | [#13](https://github.com/tcivie/eepview/pull/13) |
 | Brand | in progress | [Brand](brand.md) | [#11](https://github.com/tcivie/eepview/pull/11) |
